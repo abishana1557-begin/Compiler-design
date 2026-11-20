@@ -1,0 +1,12 @@
+%{
+%}
+%%
+[0-9]+\.[0-9]+ {printf("\nValid float number\n");}
+.+ {printf("\nFloat Number invalid");}
+%%
+int yywrap(void){}
+int main()
+{
+ printf("Enter number:");
+ yylex();
+}

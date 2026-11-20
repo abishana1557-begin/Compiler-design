@@ -1,0 +1,16 @@
+%{
+int u=0,l=0;
+%}
+%%
+[A-Z] {u++;}
+[a-z] {l++;}
+\n {return 0;}
+. ;
+%%
+int yywrap(void){return 1;}
+int main()
+{
+ printf("Enter a sentence:\n");
+ yylex();
+ printf("Uppercase letters: %d\nLowercase letters: %d\n",u,l);
+}

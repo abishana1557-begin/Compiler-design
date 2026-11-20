@@ -1,0 +1,13 @@
+%{
+#include <stdio.h>
+%}
+%%
+cat {printf("dog");}
+.|\n {printf("%s",yytext);}
+%%
+int yywrap(void){return 1;}
+int main()
+{
+ printf("Enter passage:\n");
+ yylex();
+}

@@ -1,0 +1,15 @@
+%{
+#include <stdio.h>
+%}
+%%
+"//"[^\n]* ;
+"/*"([^*]|\*+[^*/])*\*+"/" ;
+\n { ECHO; }
+. { ECHO; }
+%%
+int yywrap(void){return 1;}
+int main()
+{
+ printf("Enter C program (Ctrl+Z then Enter to stop):\n");
+ yylex();
+}
